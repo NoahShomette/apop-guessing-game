@@ -12,41 +12,6 @@ export default function AccountManager() {
     useEffect(() => {
         let ignore = false
         async function getProfile() {
-            console.log("runnning old usernmae")
-            if (session == null) {
-                return (
-                    < div className={styles.spacerHolder} >
-                        Not Signed in
-                    </div >
-                )
-            }
-            const { user } = session
-
-            const { data, error } = await supabase
-                .from('profiles')
-                .select(`username`)
-                .eq('id', user.id)
-                .single()
-
-            if (!ignore) {
-                if (error) {
-                    console.warn(error)
-                } else if (data) {
-                    setOldUsername(data.username)
-                }
-            }
-        }
-
-        getProfile()
-
-        return () => {
-            ignore = true
-        }
-    })
-
-    useEffect(() => {
-        let ignore = false
-        async function getProfile() {
             setLoading(true)
             if (session == null) {
                 return (
@@ -67,6 +32,7 @@ export default function AccountManager() {
                 if (error) {
                     console.warn(error)
                 } else if (data) {
+                    setOldUsername(data.username)
                     setUsername(data.username)
                 }
             }
@@ -104,6 +70,8 @@ export default function AccountManager() {
         if (error) {
             alert(error.message)
         }
+        setOldUsername(username)
+
         setLoading(false)
     }
 
