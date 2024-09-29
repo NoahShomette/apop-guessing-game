@@ -16,6 +16,7 @@
     letter-spacing: 2px;
     text-decoration: none;
     transition: all 0.3s;
+    color: var(--dark);
 }
 
 .name:hover {
