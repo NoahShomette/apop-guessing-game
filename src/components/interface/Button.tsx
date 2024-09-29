@@ -71,18 +71,23 @@ export default function Button(props: ButtonProps) {
 
     let buttonStyles = "";
     let textStyles = "";
-    let backgroundColor = props.backgroundColor ? props.backgroundColor : colors.activeColor.colorMainAlt;
-    let textColor = props.buttonText ? props.buttonText.textColor : colors.activeColor.colorContrast;
-    let iconColor = props.buttonIcon ? props.buttonIcon.iconColor : colors.activeColor.colorContrast;
+    let backgroundColor = props.backgroundColor ? props.backgroundColor : colors.activeColor.contrastLight;
+
+    // If it has a text or an icon check and see if it has a manual color
+    let textColor = props.buttonText?.textHover ? props.buttonText.textHover : colors.activeColor.contrastDark;
+    let iconColor = props.buttonIcon?.iconColor ? props.buttonIcon.iconColor : colors.activeColor.contrastDark;
+
+
 
     if (hovered) {
         buttonStyles = buttonStyles + " " + styles.hovered;
         textStyles = textStyles + " " + styles.hovered;
         if (props.background) {
-            backgroundColor = props.backgroundHover ? props.backgroundHover : colors.activeColor.colorContrast;
+            backgroundColor = props.backgroundHover ? props.backgroundHover : colors.activeColor.contrastDark;
         }
-        textColor = props.buttonText ? props.buttonText.textHover : colors.activeColor.colorMainAlt;
-        iconColor = props.buttonIcon ? props.buttonIcon.iconHover : colors.activeColor.colorMainAlt;
+        // If it has a text or an icon check and see if it has a manual color
+        textColor = props.buttonText?.textHover ? props.buttonText.textHover : colors.activeColor.contrastLight;
+        iconColor = props.buttonIcon?.iconColor ? props.buttonIcon.iconColor : colors.activeColor.contrastLight;
 
     }
 
@@ -146,7 +151,7 @@ export default function Button(props: ButtonProps) {
 
         if (props.buttonIcon) {
             content.push(<div key={0}>
-                <FontAwesomeIcon icon={props.buttonIcon.iconDefinition} className={[styles.icon, buttonStyles].join(" ")}
+                <FontAwesomeIcon icon={props.buttonIcon.iconDefinition} className={[styles.icon, textStyles].join(" ")}
                     size={props.buttonIcon.iconSize} style={{ color: iconColor }} />
             </div>)
         }

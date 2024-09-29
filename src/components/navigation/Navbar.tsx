@@ -16,8 +16,6 @@ export default function Navbar() {
   const [mobileMenuVisible, setMobileMenuIsVisible] = useState(false);
   const [mQuery, setMQuery] = useState({ matches: window.innerWidth > 1200 });
 
-  let colorContext = useColors();
-
   const handleMobileNavClick = () => {
     setMobileMenuIsVisible(!mobileMenuVisible);
   };
@@ -28,15 +26,13 @@ export default function Navbar() {
   }
 
   let gradient = "";
-  if (colorContext.activeColor.gradient) {
-    gradient = styles.gradient;
-  } else {
-    var elements = document.getElementsByClassName(styles.mobileMenu);
 
-    if (elements[0] instanceof HTMLElement) {
-      elements[0].classList.remove(styles.gradient);
-    }
+  var elements = document.getElementsByClassName(styles.mobileMenu);
+
+  if (elements[0] instanceof HTMLElement) {
+    elements[0].classList.remove(styles.gradient);
   }
+
 
   useEffect(() => {
     let mediaQuery = window.matchMedia("(min-width: 1200px)");
@@ -56,7 +52,7 @@ export default function Navbar() {
   return (
     <nav className={[styles.navbar].join(" ")}>
       <Link className={styles.name} to="/">
-        <div>K-POP</div>
+        <div>A-POP</div>
         <div>Guessing Game</div>
       </Link>
       <div className={styles.rightNav}>
@@ -67,21 +63,10 @@ export default function Navbar() {
             background={true}
           />
           <Button
-            buttonText={{ buttonText: "Projects", textSize: buttonSize }}
-            link={{ linkType: LinkType.internal, link: "/projects" }}
+            buttonText={{ buttonText: "Play", textSize: buttonSize }}
+            link={{ linkType: LinkType.internal, link: "/play" }}
             background={true}
           />
-          <Button
-            buttonText={{ buttonText: "Github", textSize: buttonSize }}
-            link={{ linkType: LinkType.external, link: "https://github.com/NoahShomette" }}
-            buttonIcon={{ iconDefinition: faUpRightFromSquare, iconSize: "sm" }}
-            background={true}
-          />
-          <Spacer
-            color={colorContext.activeColor.colorContrast}
-            height="70%"
-            width="3px"
-          ></Spacer>
           <Button
             buttonIcon={{ iconDefinition: faUser, iconSize: "lg" }}
             link={{ linkType: LinkType.internal, link: "/account" }}
@@ -115,16 +100,10 @@ export default function Navbar() {
             buttonOnClick={handleMobileNavClick}
           />
           <Button
-            buttonText={{ buttonText: "Projects", textSize: ButtonSize.medium }}
-            link={{ linkType: LinkType.internal, link: "/projects" }}
+            buttonText={{ buttonText: "Play", textSize: ButtonSize.medium }}
+            link={{ linkType: LinkType.internal, link: "/play" }}
             buttonOnClick={handleMobileNavClick}
           />
-          <Button
-            buttonText={{ buttonText: "Github", textSize: ButtonSize.medium }}
-            link={{ linkType: LinkType.external, link: "https://github.com/NoahShomette" }}
-            buttonIcon={{ iconDefinition: faUpRightFromSquare, iconSize: "lg" }}
-          />
-
         </div>
         <div className={styles.mobileMenuNavigation}>
           <div className={styles.mobileMenuLineHolder}>

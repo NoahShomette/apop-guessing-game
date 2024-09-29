@@ -1,0 +1,9 @@
+.pageBody {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.outletBody {
+    flex-grow: 1;
+}

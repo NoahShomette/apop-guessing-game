@@ -2,23 +2,31 @@ import React, { ReactNode, useContext, useEffect, useLayoutEffect, useState } fr
 import { useCookies } from "react-cookie";
 
 type colorInfo = {
-    gradient: boolean,
-    colorMain: string,
-    colorSecondaryGradient: string,
-    colorContrast: string,
-    colorMainAlt: string,
-    colorLight: string,
-    colorDark: string
+    background: string,
+    backgroundLight: string,
+    backgroundDark: string,
+    contrast: string,
+    contrastLight: string,
+    contrastDark: string,
+    contrastAlt: string,
+    contrastAltDark: string,
+    contrastAltLight: string,
+    dark: string,
+    light: string
 }
 
 const colorInfoDefault: colorInfo = {
-    gradient: false,
-    colorMain: "#341D27",
-    colorSecondaryGradient: "#468132",
-    colorMainAlt: "#653D4E",
-    colorContrast: "#F0A53B",
-    colorLight: "#DBDBDB",
-    colorDark: "#1C1C1C",
+    background: "#E2E2E2",
+    backgroundLight: "#DFDFDF",
+    backgroundDark: "#969696",
+    contrastLight: "#F0C384",
+    contrastDark: "#D08111",
+    contrast: "#F0A53B",
+    contrastAlt: "#2274A5",
+    contrastAltDark: "#09669C",
+    contrastAltLight: "#488CB4",
+    dark: "#1C1C1C",
+    light: "#DFDFDF",
 }
 
 type colorContext = {
@@ -68,23 +76,28 @@ export default function ColorsProvider({ children }: Props) {
     });
 
     const updateStyles = (newColor: colorInfo) => {
-        if (newColor.gradient) {
-            document.querySelector(':root')?.classList.add("gradient");
-        } else {
-            document.querySelector(':root')?.classList.remove("gradient");
-        }
         document.documentElement.style
-            .setProperty('--color-main', newColor.colorMain);
+            .setProperty('--bg', newColor.background);
         document.documentElement.style
-            .setProperty('--color-secondary-gradient', newColor.colorSecondaryGradient);
+            .setProperty('--bg-dark', newColor.backgroundDark);
         document.documentElement.style
-            .setProperty('--color-main-alt', newColor.colorMainAlt);
+            .setProperty('--bg-light', newColor.backgroundLight);
         document.documentElement.style
-            .setProperty('--color-contrast', newColor.colorContrast);
+            .setProperty('--contrast', newColor.contrast);
         document.documentElement.style
-            .setProperty('--color-light', newColor.colorLight);
+            .setProperty('--contrast-light', newColor.contrastLight);
         document.documentElement.style
-            .setProperty('--color-dark', newColor.colorDark);
+            .setProperty('--contrast-dark', newColor.contrastDark);
+        document.documentElement.style
+            .setProperty('--contrast-alt', newColor.contrastAlt);
+        document.documentElement.style
+            .setProperty('--contrast-alt-light', newColor.contrastAltLight);
+        document.documentElement.style
+            .setProperty('--contrast-alt-dark', newColor.contrastAltDark);
+        document.documentElement.style
+            .setProperty('--light', newColor.light);
+        document.documentElement.style
+            .setProperty('--dark', newColor.dark);
     }
 
     const changeActiveColor = (newColor: colorInfo) => {

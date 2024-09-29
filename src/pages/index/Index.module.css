@@ -1,0 +1,17 @@
+.indexBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-light);
+}
+
+.indexHeader {
+    padding: var(--spacing-md);
+    width: 80rem;
+    max-width: 80rem;
+}
+
+.callOutButtons {
+    display: flex;
+    flex-direction: row;
+}
