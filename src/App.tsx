@@ -14,7 +14,7 @@ function App() {
       <ColorsProvider>
         <SupabaseProvider>
 
-          <BrowserRouter>
+          <BrowserRouter basename="/apop-guessing-game">
             <Routes>
               <Route path="/" element={<Layout />}>
                 {/* <Route index element={<Index />}></Route> */}
