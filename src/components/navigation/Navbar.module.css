@@ -84,7 +84,7 @@
 }
 
 .mobileMenu {
-    position: absolute;
+    position: fixed;
     height: auto;
     right: var(--spacing-lg);
     bottom: var(--spacing-md);
@@ -113,7 +113,7 @@
 }
 
 .mobileBackgroundBlur.mobileMenuEnabled {
-    position: absolute;
+    position: fixed;
     display: block;
     backdrop-filter: blur(5px)
 }
@@ -126,7 +126,7 @@
 
 .mobileMenu.mobileMenuEnabled {
     display: block;
-    position: absolute;
+    position: fixed;
 }
 
 @media screen and (min-width: 800px) {
