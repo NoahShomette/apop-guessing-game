@@ -1,5 +1,6 @@
 {
   "name": "kpop-guessing-game",
+  "homepage": "https://noahshomette.github.io/apop-guessing-game/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
