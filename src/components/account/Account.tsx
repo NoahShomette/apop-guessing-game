@@ -1,58 +1,21 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./Account.module.css";
-import { SupabaseContext, SupabaseSession } from "../../context/supabaseContext";
+import { AccountDataContext, SupabaseContext, SupabaseSession } from "../../context/supabaseContext";
 
 export default function AccountManager() {
     const supabase = useContext(SupabaseContext);
     const session = useContext(SupabaseSession);
-    const [oldUsername, setOldUsername] = useState<string | null>()
+    const accountInfo = useContext(AccountDataContext);
     const [username, setUsername] = useState<string | null>()
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-        let ignore = false
-        async function getProfile() {
-            setLoading(true)
-            if (session == null) {
-                return (
-                    < div className={styles.spacerHolder} >
-                        Not Signed in
-                    </div >
-                )
-            }
-            const { user } = session
-
-            const { data, error } = await supabase
-                .from('profiles')
-                .select(`username`)
-                .eq('id', user.id)
-                .single()
-
-            if (!ignore) {
-                if (error) {
-                    console.warn(error)
-                } else if (data) {
-                    setOldUsername(data.username)
-                    setUsername(data.username)
-                }
-            }
-
-            setLoading(false)
-        }
-
-        getProfile()
-
-        return () => {
-            ignore = true
-        }
-    }, [session, supabase])
 
     async function updateProfile(event: { preventDefault: () => void; }) {
         event.preventDefault()
         setLoading(true)
         if (session == null) {
             return (
-                < div className={styles.spacerHolder} >
+                < div className={styles.accountBody} >
                     Not Signed in
                 </div >
             )
@@ -70,22 +33,24 @@ export default function AccountManager() {
         if (error) {
             alert(error.message)
         }
-        setOldUsername(username)
-
         setLoading(false)
+        accountInfo?.UpdatedUsername();
     }
+
 
     if (session == null) {
         return (
-            < div className={styles.spacerHolder} >
+            < div className={styles.accountBody} >
                 Not Signed in
             </div >
         )
     }
 
     return (
-        <div className={styles.spacerHolder}>
-            {oldUsername}
+        <div className={styles.accountBody}>
+            <div className={styles.accountInfo}>
+                <p>{accountInfo?.accountInfo.admin ? "Admin" : ""}</p>
+            </div>
             <form onSubmit={updateProfile} className="form-widget">
                 <div>
                     <label htmlFor="email">Email</label>

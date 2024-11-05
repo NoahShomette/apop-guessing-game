@@ -1,0 +1,10 @@
+.accountInfo {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.accountBody {
+    display: flex;
+    flex-direction: column;
+}

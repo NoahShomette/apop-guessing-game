@@ -30,7 +30,6 @@ export default function Authenticate() {
         };
         return (
             <div className={styles.authMain}>
-                <p>Welcome {session.user.user_metadata.name}!</p>
                 <Button
                     buttonText={{ buttonText: "Sign Out", textSize: ButtonSize.medium }}
                     buttonOnClick={handleSignOut}

@@ -74,7 +74,7 @@ export default function Button(props: ButtonProps) {
     let backgroundColor = props.backgroundColor ? props.backgroundColor : colors.activeColor.contrastLight;
 
     // If it has a text or an icon check and see if it has a manual color
-    let textColor = props.buttonText?.textHover ? props.buttonText.textHover : colors.activeColor.contrastDark;
+    let textColor = props.buttonText?.textColor ? props.buttonText.textColor : colors.activeColor.contrastDark;
     let iconColor = props.buttonIcon?.iconColor ? props.buttonIcon.iconColor : colors.activeColor.contrastDark;
 
 

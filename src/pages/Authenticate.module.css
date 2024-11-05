@@ -1,5 +1,13 @@
 .authenticationHolder {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 
+}
+
+.authBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
 }

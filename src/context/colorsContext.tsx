@@ -23,8 +23,8 @@ const colorInfoDefault: colorInfo = {
     contrastDark: "#D08111",
     contrast: "#F0A53B",
     contrastAlt: "#2274A5",
-    contrastAltDark: "#09669C",
-    contrastAltLight: "#488CB4",
+    contrastAltDark: "#0C4C72",
+    contrastAltLight: "#44A7E0",
     dark: "#1C1C1C",
     light: "#DFDFDF",
 }

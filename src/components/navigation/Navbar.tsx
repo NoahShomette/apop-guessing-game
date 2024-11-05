@@ -6,15 +6,17 @@ import {
   faX,
 } from "@fortawesome/free-solid-svg-icons";
 import Button, { LinkType } from "../interface/Button";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useColors } from "../../context/colorsContext";
 import { ButtonSize } from "../../utils/options";
 import Spacer from "../design/spacers/Spacer";
 import { Link } from "react-router-dom";
+import { AccountDataContext } from "../../context/supabaseContext";
 
 export default function Navbar() {
   const [mobileMenuVisible, setMobileMenuIsVisible] = useState(false);
   const [mQuery, setMQuery] = useState({ matches: window.innerWidth > 1200 });
+  const accountInfo = useContext(AccountDataContext);
 
   const handleMobileNavClick = () => {
     setMobileMenuIsVisible(!mobileMenuVisible);
@@ -57,6 +59,14 @@ export default function Navbar() {
       </Link>
       <div className={styles.rightNav}>
         <div className={styles.buttons}>
+          {accountInfo?.accountInfo.admin ? <Button
+            buttonText={{ buttonText: "Admin", textSize: buttonSize, textColor: "#dfdfdf", textHover: "#1c1c1c" }}
+            link={{ linkType: LinkType.internal, link: "/admin" }}
+            backgroundColor="#2274a5"
+            backgroundHover="#44a7e0"
+
+            background={true}
+          /> : ""}
           <Button
             buttonText={{ buttonText: "Home", textSize: buttonSize }}
             link={{ linkType: LinkType.internal, link: "/" }}
@@ -94,6 +104,11 @@ export default function Navbar() {
         className={[styles.mobileMenu, mobileMenuEnabled, gradient].join(" ")}
       >
         <div className={styles.mobileButtons}>
+          {accountInfo?.accountInfo.admin ? <Button
+            buttonText={{ buttonText: "Admin", textSize: ButtonSize.medium }}
+            link={{ linkType: LinkType.internal, link: "/admin" }}
+            buttonOnClick={handleMobileNavClick}
+          /> : ""}
           <Button
             buttonText={{ buttonText: "Home", textSize: ButtonSize.medium }}
             link={{ linkType: LinkType.internal, link: "/" }}
