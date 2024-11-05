@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/apop-guessing-game/static/css/main.04ca3eb5.css",
-    "main.js": "/apop-guessing-game/static/js/main.e1efc4f4.js",
-    "static/js/952.ca2c0a20.chunk.js": "/apop-guessing-game/static/js/952.ca2c0a20.chunk.js",
-    "static/js/453.759750a4.chunk.js": "/apop-guessing-game/static/js/453.759750a4.chunk.js",
+    "main.css": "/apop-guessing-game/static/css/main.0d7b35b2.css",
+    "main.js": "/apop-guessing-game/static/js/main.f54e0a15.js",
+    "static/js/952.cd18753c.chunk.js": "/apop-guessing-game/static/js/952.cd18753c.chunk.js",
+    "static/js/453.80f2d6cb.chunk.js": "/apop-guessing-game/static/js/453.80f2d6cb.chunk.js",
     "index.html": "/apop-guessing-game/index.html",
-    "main.04ca3eb5.css.map": "/apop-guessing-game/static/css/main.04ca3eb5.css.map",
-    "main.e1efc4f4.js.map": "/apop-guessing-game/static/js/main.e1efc4f4.js.map",
-    "952.ca2c0a20.chunk.js.map": "/apop-guessing-game/static/js/952.ca2c0a20.chunk.js.map",
-    "453.759750a4.chunk.js.map": "/apop-guessing-game/static/js/453.759750a4.chunk.js.map"
+    "main.0d7b35b2.css.map": "/apop-guessing-game/static/css/main.0d7b35b2.css.map",
+    "main.f54e0a15.js.map": "/apop-guessing-game/static/js/main.f54e0a15.js.map",
+    "952.cd18753c.chunk.js.map": "/apop-guessing-game/static/js/952.cd18753c.chunk.js.map",
+    "453.80f2d6cb.chunk.js.map": "/apop-guessing-game/static/js/453.80f2d6cb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.04ca3eb5.css",
-    "static/js/main.e1efc4f4.js"
+    "static/css/main.0d7b35b2.css",
+    "static/js/main.f54e0a15.js"
   ]
 }
